@@ -1,0 +1,55 @@
+name: Skill feedback
+description: Report a reproducible problem or propose a focused improvement to either course Skill.
+title: "[Skill feedback] "
+labels:
+  - skill-feedback
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use only sanitized examples. Do not paste course files, submissions, names, supervisor details, interview transcripts, shared links, credentials, or other PII.
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Skill or component
+      options:
+        - course-pm-companion
+        - course-weekly-delivery
+        - Weekly Log script
+        - DOCX script
+        - Validation or privacy audit
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Sanitized context
+      description: State the week state and goal using fictional or redacted values.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include only sanitized steps or a fictional fixture.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed real course content, names, links, interview material, submissions, credentials, and local absolute paths.
+          required: true

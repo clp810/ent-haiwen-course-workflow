@@ -1,0 +1,6 @@
+interface:
+  display_name: "Course Weekly Delivery"
+  short_description: "Build weekly DRAFTs and confirmed FINALs"
+  default_prompt: "Use $course-weekly-delivery for one local course week, continuing from WEEK_HANDOFF.md when present."
+policy:
+  allow_implicit_invocation: false

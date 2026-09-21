@@ -1,0 +1,31 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local course identity and access details
+course/COURSE_PROFILE.local.md
+.env
+.env.*
+!.env.example
+
+# Raw weekly teaching materials stay local
+course/weeks/*/
+!course/weeks/README.md
+
+# Real handoffs and submission artifacts stay local
+course/deliverables/*/
+!course/deliverables/README.md
+
+# Interview recordings, transcripts, exports, and scratch work
+research/raw/
+work/
+tmp/
+
+# Office lock and temporary files
+~$*
+.~lock.*
+*.tmp

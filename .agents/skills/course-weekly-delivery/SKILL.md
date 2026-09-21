@@ -22,7 +22,7 @@ Never depend on a member's home directory. Do not copy live values from the trac
 
 1. Resolve exactly one requested week and read `AGENTS.md`, the local profile when present, and only that week directory.
 2. Look for `course/deliverables/<week-id>/WEEK_HANDOFF.md`.
-3. If no valid handoff exists or its state is `ANALYZE`, load the repository's `$course-pm-companion` and read [references/analyze.md](references/analyze.md). Analyze first, ask at most six grouped high-information questions, then stop without creating files.
+3. If no valid handoff exists or its state is `ANALYZE`, load the repository's `$course-analysis-companion` and read [references/analyze.md](references/analyze.md). Analyze first, ask at most six grouped high-information questions, then stop without creating files.
 4. After the user answers, create or update the handoff. If its state becomes `READY_FOR_DRAFT`, `DRAFT`, or `FINAL_BLOCKED`, do not reload complete courseware unless the handoff records a conflict, changed source, or unresolved locator.
 5. For DRAFT, revision, or FINAL work, read [references/artifacts.md](references/artifacts.md) and only the current handoff, current working files, local profile, approved blank template, and source locators needed for unresolved claims.
 

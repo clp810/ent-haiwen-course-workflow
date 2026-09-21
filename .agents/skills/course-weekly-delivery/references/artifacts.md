@@ -23,7 +23,7 @@ Create the link wrapper only when verified instructions require it. Maintain one
 
 Use the bundled workspace Python and the scripts beside this reference:
 
-- `scripts/patch_weekly_log.py`: patch a small JSON cell map while protecting `B Supervisor` and `C Acceleration Gate`;
+- `scripts/patch_weekly_log.py`: patch a small JSON cell map through the cell-level whitelist while protecting `B Supervisor` and `C Acceleration Gate`;
 - `scripts/build_coursework_docx.py`: build a consistently styled DOCX from a small JSON specification;
 - `scripts/validate_delivery.py`: verify protected tabs, declarations, stage markers, placeholders, and required DOCX strings.
 
@@ -33,11 +33,12 @@ Before Office authoring, follow the available spreadsheet or document Skill, use
 
 ## Weekly Log contract
 
-- Fill only `A Student Weekly`, `D1 Evidence Register`, and `D2 AI Use`.
-- Change `Lists` only when a confirmed local team value is missing.
+- Fill only `A Student Weekly!B6:B24`, `D1 Evidence Register!B6:G105`, and `D2 AI Use!A6:G105`. `D1 Evidence Register!A6:A105` contains immutable formulas.
+- Change only `Lists!B6:B35`, and only when a confirmed local team value is missing.
 - Do not change `B Supervisor` or `C Acceleration Gate`.
 - Preserve formulas, validations, styles, merges, dimensions, print settings, sheet order, and hidden state.
 - Keep all declarations unchecked in DRAFT. Check them in FINAL only after the user explicitly confirms each statement.
+- Keep `A Student Weekly!B6:B21` nonblank in both stages; where absence is meaningful, use an explicit value such as `None` or `None identified`.
 - Record one row per material AI use. Human verification remains pending until the user describes the review and changes.
 
 ## DOCX contract
@@ -53,4 +54,4 @@ Before Office authoring, follow the available spreadsheet or document Skill, use
 
 For DRAFT, run structural validation; render and inspect every DOCX page; inspect each populated Excel sheet or range; and report pending fields, evidence gaps, declarations, and submission risks.
 
-For FINAL, require an explicit request and confirmation that the team reviewed the pack, evidence is traceable and ethically obtained, and AI use is recorded and human-verified. Block FINAL while any required item, declaration, placeholder, or pending marker remains. Run full structural and visual checks, write the next `_vN_FINAL`, update the handoff, and remind the user that upload and LMO submission remain manual.
+For FINAL, require an explicit request and confirmation that the team reviewed the pack, evidence is traceable and ethically obtained, and AI use is recorded and human-verified. Block FINAL while any required item, declaration, placeholder, or pending marker remains. DRAFT names end in `_DRAFT.xlsx` or `_DRAFT.docx`; FINAL names end in `_vN_FINAL.xlsx` or `_vN_FINAL.docx`. Run full structural and visual checks, write the next versioned FINAL, update the handoff, and remind the user that upload and LMO submission remain manual.

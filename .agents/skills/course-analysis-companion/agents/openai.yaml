@@ -1,0 +1,6 @@
+interface:
+  display_name: "Course Analysis Companion"
+  short_description: "Extract traceable weekly course requirements"
+  default_prompt: "Use $course-analysis-companion to analyze one course week and return source-traceable requirements and unknowns."
+policy:
+  allow_implicit_invocation: true

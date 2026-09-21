@@ -25,7 +25,7 @@
 ```text
 local weekly materials
         ↓
-course-pm-companion
+course-analysis-companion
 requirements + locators + unknowns
         ↓  up to 6 grouped questions
 WEEK_HANDOFF.md
@@ -36,7 +36,7 @@ Weekly Log + Coursework Pack + optional link wrapper
 versioned FINAL
 ```
 
-`course-pm-companion` 负责读取当周材料、区分明确要求与建议，并形成可追溯交接。`course-weekly-delivery` 负责持久化本周状态、调用确定性脚本、维护单一 DRAFT 和 FINAL 门禁。
+`course-analysis-companion` 负责读取当周材料、区分明确要求与建议，并形成可追溯交接。`course-weekly-delivery` 负责持久化本周状态、调用确定性脚本、维护单一 DRAFT 和 FINAL 门禁。
 
 ## 仓库结构
 
@@ -60,9 +60,9 @@ tests/                          完全虚构的最小测试夹具与回归测试
 
 交付 Skill 使用三个确定性脚本：
 
-- `patch_weekly_log.py`：只修改允许的单元格并保护导师与加速门槛工作表；
+- `patch_weekly_log.py`：只允许修改 `A Student Weekly!B6:B24`、`D1 Evidence Register!B6:G105`、`D2 AI Use!A6:G105`、`Lists!B6:B35`，并完整保护导师与加速门槛工作表；
 - `build_coursework_docx.py`：从小型 JSON 规范生成一致的 DOCX；
-- `validate_delivery.py`：检查 DRAFT/FINAL 门禁、受保护工作表、声明和占位符。
+- `validate_delivery.py`：检查 DRAFT/FINAL 文件名、静态核心必填项、声明、受保护工作表，以及 FINAL 全可编辑区中的未完成标记。
 
 ## 验证
 

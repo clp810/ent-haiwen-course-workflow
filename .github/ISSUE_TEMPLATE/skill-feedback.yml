@@ -13,7 +13,7 @@ body:
     attributes:
       label: Skill or component
       options:
-        - course-pm-companion
+        - course-analysis-companion
         - course-weekly-delivery
         - Weekly Log script
         - DOCX script

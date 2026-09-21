@@ -12,5 +12,5 @@ if [[ ! -f "$validator" ]]; then
   exit 1
 fi
 
-"$python_bin" "$validator" "$repo_root/.agents/skills/course-pm-companion"
+"$python_bin" "$validator" "$repo_root/.agents/skills/course-analysis-companion"
 "$python_bin" "$validator" "$repo_root/.agents/skills/course-weekly-delivery"

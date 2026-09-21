@@ -16,13 +16,18 @@ from pathlib import Path
 
 from lxml import etree
 
+from weekly_log_contract import (
+    EDITABLE_SHEETS,
+    PROTECTED_SHEETS,
+    REQUIRED_SHEETS,
+    assert_editable_cell,
+)
+
 
 SHEET_NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
 REL_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 PACKAGE_REL_NS = "http://schemas.openxmlformats.org/package/2006/relationships"
 XML_SPACE = "{http://www.w3.org/XML/1998/namespace}space"
-EDITABLE_SHEETS = {"A Student Weekly", "D1 Evidence Register", "D2 AI Use", "Lists"}
-PROTECTED_SHEETS = {"B Supervisor", "C Acceleration Gate"}
 
 
 def sha256(path: Path) -> str:
@@ -137,9 +142,8 @@ def validate_and_prepare(template: Path, base: Path, spec: dict) -> dict[str, by
     with zipfile.ZipFile(template, "r") as template_zip, zipfile.ZipFile(base, "r") as base_zip:
         template_paths = workbook_sheet_paths(template_zip)
         base_paths = workbook_sheet_paths(base_zip)
-        required = EDITABLE_SHEETS | PROTECTED_SHEETS
-        missing = required - set(base_paths)
-        template_missing = required - set(template_paths)
+        missing = REQUIRED_SHEETS - set(base_paths)
+        template_missing = REQUIRED_SHEETS - set(template_paths)
         if missing:
             raise ValueError(f"Workbook is missing required sheets: {sorted(missing)}")
         if template_missing:
@@ -150,6 +154,10 @@ def validate_and_prepare(template: Path, base: Path, spec: dict) -> dict[str, by
         for sheet, changes in cells.items():
             if not isinstance(changes, dict):
                 raise ValueError(f"Cell map for {sheet} must be an object.")
+            for ref in changes:
+                if not isinstance(ref, str):
+                    raise ValueError("Cell references must be strings.")
+                assert_editable_cell(sheet, ref)
             member = base_paths[sheet]
             replacements[member] = patch_sheet(base_zip.read(member), changes)
     return replacements

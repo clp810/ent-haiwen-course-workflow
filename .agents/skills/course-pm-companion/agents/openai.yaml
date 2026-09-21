@@ -1,6 +1,0 @@
-interface:
-  display_name: "Course PM Companion"
-  short_description: "Extract traceable weekly course requirements"
-  default_prompt: "Use $course-pm-companion to analyze one course week and return source-traceable requirements and unknowns."
-policy:
-  allow_implicit_invocation: true

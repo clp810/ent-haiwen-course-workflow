@@ -1,22 +1,22 @@
 ---
-name: course-pm-companion
+name: course-analysis-companion
 description: Analyze one requested course week's local slides, PDFs, documents, images, brief, or rubric; extract source-traceable requirements and produce a compact delivery handoff. Use for course requirement analysis, not for generic summarization or Office file generation.
 ---
 
-# Course PM Companion
+# Course Analysis Companion
 
 Analyze course materials without creating submission files. Discuss in Chinese by default while retaining useful English course terms.
 
 ## Resolve scope
 
-1. Discover the nearest repository root containing both `.agents/skills/course-pm-companion` and `.agents/skills/course-weekly-delivery`. Do not use a user home directory or a globally installed copy as project state.
+1. Discover the nearest repository root containing both `.agents/skills/course-analysis-companion` and `.agents/skills/course-weekly-delivery`. Do not use a user home directory or a globally installed copy as project state.
 2. Resolve exactly one requested week under `course/weeks/<week-id>/`. If multiple weeks are plausible, ask which one.
 3. Read only that week's files and the minimum shared course instruction or blank template needed to interpret them. Do not scan other weeks unless a cited requirement depends on them.
 
 ## Select the smallest mode
 
 - **Submission requirements**: return only explicit deliverables, locators, unknowns, and decision-relevant questions.
-- **Course application**: when the user asks how the lesson applies to Haiwen, also read `docs/HAIWEN_PROJECT_CONTEXT.md`. Do not introduce personal career, portfolio, or contribution framing.
+- **Course application**: when the user asks how the lesson applies to Haiwen, also read `docs/HAIWEN_PROJECT_CONTEXT.md`. Keep the analysis within the requested course and project scope.
 - **Delivery handoff**: when invoked by `$course-weekly-delivery`, return the compact fields in [references/analysis-contract.md](references/analysis-contract.md). Do not write files or generate Office artifacts.
 
 When a current local `WEEK_HANDOFF.md` already contains verified requirements for the requested week, do not re-analyze unchanged courseware unless the user asks, a source changed, or a locator is unresolved.
